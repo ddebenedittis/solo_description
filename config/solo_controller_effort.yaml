@@ -1,0 +1,164 @@
+controller_manager:
+    ros__parameters:
+        update_rate: 200
+
+        effort_controller:
+            type: effort_controllers/JointGroupEffortController
+            
+        joint_state_broadcaster:
+            type: joint_state_broadcaster/JointStateBroadcaster
+
+        imu_sensor_broadcaster:
+            type: imu_sensor_broadcaster/IMUSensorBroadcaster
+
+        whole_body_controller:
+            type: hqp_controller/HQPController
+
+        planner:
+            type: static_walk_planner/SWPController
+
+
+joint_state_broadcaster:
+    ros__parameters:
+        joints:
+            - FL_HAA
+            - FL_HFE
+            - FL_KFE
+            - FR_HAA
+            - FR_HFE
+            - FR_KFE
+            - HL_HAA
+            - HL_HFE
+            - HL_KFE
+            - HR_HAA
+            - HR_HFE
+            - HR_KFE
+        interfaces:
+            - position
+            - velocity
+            - effort
+
+
+effort_controller:
+    ros__parameters:
+        joints:
+            - FL_HAA
+            - FL_HFE
+            - FL_KFE
+            - FR_HAA
+            - FR_HFE
+            - FR_KFE
+            - HL_HAA
+            - HL_HFE
+            - HL_KFE
+            - HR_HAA
+            - HR_HFE
+            - HR_KFE
+        command_interfaces:
+            - effort
+        state_interfaces:
+            - position
+            - velocity
+            - effort
+
+        state_publish_rate:  200.0 # Defaults to 50
+        action_monitor_rate: 200.0 # Defaults to 20
+
+
+imu_sensor_broadcaster:
+    ros__parameters:
+        sensor_name: imu_sensor
+        frame_id: base
+
+
+whole_body_controller:
+    ros__parameters:
+        robot_name: solo12
+        sample_time: 0.0025
+
+        joints:
+            - FL_HAA
+            - FL_HFE
+            - FL_KFE
+            - FR_HAA
+            - FR_HFE
+            - FR_KFE
+            - HL_HAA
+            - HL_HFE
+            - HL_KFE
+            - HR_HAA
+            - HR_HFE
+            - HR_KFE
+
+        tau_max: 2.7
+        mu: 0.6
+        Fn_max: 10.
+        Fn_min: 2.
+
+        kp_b_pos:
+            - 20.
+            - 20.
+            - 20.
+        kd_b_pos:
+            - 20.
+            - 20.
+            - 20.
+
+        kp_b_ang:
+            - 30.
+            - 30.
+            - 30.
+        kd_b_ang:
+            - 30.
+            - 30.
+            - 30.
+
+        kp_s_pos:
+            - 10.
+            - 10.
+            - 10.
+        kd_s_pos:
+            - 2.
+            - 2.
+            - 2.
+            
+        kp_terr:
+            - 1000.
+            - 1000.
+            - 1000.
+        kd_terr:
+            - 1000.
+            - 1000.
+            - 1000.
+
+
+planner:
+    ros__parameters:
+        sample_time: 0.005
+        init_phase: 0.4
+        all_feet_names:
+            - FL
+            - FR
+            - HL
+            - HR
+        gait_pattern:
+            - FL
+            - HR
+            - FR
+            - HL
+        cycle_duration: 5.
+        step_duty_factor: 0.7
+        step_length: 0.05
+        step_height: 0.1
+        desired_foot_penetration: 0.01
+        desired_base_height: 0.26
+        initial_base_height: 0.33
+        initial_position:
+            - 0.
+            - 0.
+        leg_position: 
+            - 0.15
+            - 0.1
+        base_oscillation: 
+            - 0.03
+            - 0.02
