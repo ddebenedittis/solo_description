@@ -76,6 +76,10 @@ whole_body_controller:
         robot_name: solo12
         sample_time: 0.0025
 
+        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
+
+        initialization_counter: 2000    # ! Must be the same as the initialization_counter in the planner
+
         joints:
             - FL_HAA
             - FL_HFE
@@ -134,6 +138,8 @@ whole_body_controller:
 
 planner:
     ros__parameters:
+        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
+        initialization_counter: 2000    # ! Must be the same as the initialization_counter in the planner
         sample_time: 0.005
         init_phase: 0.4
         all_feet_names:
