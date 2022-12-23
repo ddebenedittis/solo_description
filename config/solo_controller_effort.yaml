@@ -78,7 +78,10 @@ whole_body_controller:
 
         use_estimator: false            # ! Must be the same as the initialization_counter in the planner
 
-        initialization_counter: 2000    # ! Must be the same as the initialization_counter in the planner
+        initialization_counter: 500    # ! Must be the same as the initialization_counter in the planner
+
+        PD_proportional: 5.
+        PD_derivative: 0.05
 
         joints:
             - FL_HAA
@@ -100,31 +103,31 @@ whole_body_controller:
         Fn_min: 2.
 
         kp_b_pos:
-            - 20.
-            - 20.
-            - 20.
+            - 50.
+            - 50.
+            - 50.
         kd_b_pos:
             - 20.
             - 20.
             - 20.
 
         kp_b_ang:
-            - 30.
-            - 30.
-            - 30.
+            - 500.
+            - 500.
+            - 500.
         kd_b_ang:
-            - 30.
-            - 30.
-            - 30.
+            - 100.
+            - 100.
+            - 100.
 
         kp_s_pos:
-            - 10.
-            - 10.
-            - 10.
+            - 150.
+            - 150.
+            - 150.
         kd_s_pos:
-            - 2.
-            - 2.
-            - 2.
+            - 10.
+            - 10.
+            - 10.
             
         kp_terr:
             - 1000.
@@ -139,7 +142,7 @@ whole_body_controller:
 planner:
     ros__parameters:
         use_estimator: false            # ! Must be the same as the initialization_counter in the planner
-        initialization_counter: 2000    # ! Must be the same as the initialization_counter in the planner
+        initialization_counter: 500    # ! Must be the same as the initialization_counter in the planner
         sample_time: 0.005
         init_phase: 0.4
         all_feet_names:
@@ -152,10 +155,10 @@ planner:
             - HR
             - FR
             - HL
-        cycle_duration: 5.
+        cycle_duration: 2.
         step_duty_factor: 0.7
-        step_length: 0.05
-        step_height: 0.1
+        step_length: 0.175
+        step_height: 0.075
         desired_foot_penetration: 0.01
         desired_base_height: 0.26
         initial_base_height: 0.33
@@ -163,8 +166,8 @@ planner:
             - 0.
             - 0.
         leg_position: 
-            - 0.15
-            - 0.1
+            - 0.165
+            - 0.11
         base_oscillation: 
             - 0.03
             - 0.02
