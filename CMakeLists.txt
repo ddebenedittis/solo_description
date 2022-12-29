@@ -32,7 +32,7 @@ find_package(ament_cmake REQUIRED)
 
 
 install(
-    DIRECTORY meshes urdf xacro config
+    DIRECTORY config launch meshes urdf xacro
     DESTINATION share/${PROJECT_NAME}
 )
 
