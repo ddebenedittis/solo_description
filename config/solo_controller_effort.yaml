@@ -76,12 +76,13 @@ whole_body_controller:
         robot_name: solo12
         sample_time: 0.0025
 
-        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
-
-        initialization_counter: 500    # ! Must be the same as the initialization_counter in the planner
+        use_estimator: false        # ! Must be the same as the use_estimator in the planner
+        initialization_time: 0.     # ! Must be the same as the initialization_time in the planner
 
         PD_proportional: 5.
         PD_derivative: 0.05
+
+        logging: true
 
         joints:
             - FL_HAA
@@ -97,6 +98,7 @@ whole_body_controller:
             - HR_HFE
             - HR_KFE
 
+        contact_constraint_type: soft_kv
         tau_max: 2.7
         mu: 0.6
         Fn_max: 10.
@@ -141,20 +143,16 @@ whole_body_controller:
 
 planner:
     ros__parameters:
-        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
-        initialization_counter: 500    # ! Must be the same as the initialization_counter in the planner
+        use_estimator: false            # ! Must be the same as the use_estimator in the whole_body_controller
+        initialization_time: 0.      # ! Must be the same as the initialization_time in the whole_body_controller
+
         sample_time: 0.005
         init_phase: 0.4
-        all_feet_names:
-            - FL
-            - FR
-            - HL
-            - HR
         gait_pattern:
-            - FL
-            - HR
-            - FR
-            - HL
+            - LF
+            - RH
+            - RF
+            - LH
         cycle_duration: 2.
         step_duty_factor: 0.7
         step_length: 0.175
