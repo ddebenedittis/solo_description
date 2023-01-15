@@ -51,7 +51,7 @@
     <!-- Effort_controller -->
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-            <parameters>$(find solo_description)/config/solo_controller_effort.yaml</parameters>
+            <parameters>$(find robot_control)/config/gazebo/solo12_controller_effort.yaml</parameters>
         </plugin>
     </gazebo>
 

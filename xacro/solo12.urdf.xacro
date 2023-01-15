@@ -11,7 +11,7 @@
     <xacro:property name="mesh_ext" value="stl" />
 
     <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-    <xacro:include filename="$(find solo_description)/xacro/solo_gazebo.xacro" />
+    <xacro:include filename="$(find solo_description)/xacro/solo12_gazebo.xacro" />
 
     <!-- This file is based on: https://atlas.is.localnet/confluence/display/AMDW/Quadruped+URDF+Files -->
     <link name="base_link">
