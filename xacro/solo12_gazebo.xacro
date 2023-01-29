@@ -127,4 +127,79 @@
         </sensor>
     </gazebo>
 
+    <!-- Contact sensors for the four feet -->
+    <!-- LF_FOOT -->
+    <gazebo reference="FL_LOWER_LEG">
+        <sensor name="LF_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>FL_LOWER_LEG_fixed_joint_lump__FL_FOOT_collision_1</collision>
+                <!-- <collision>FL_LOWER_LEG_collision</collision> -->
+            </contact>
+            <plugin name="LF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/LF</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <!-- RF_FOOT -->
+    <gazebo reference="FR_LOWER_LEG">
+        <sensor name="RF_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>FR_LOWER_LEG_fixed_joint_lump__FR_FOOT_collision_1</collision>
+            </contact>
+            <plugin name="RF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/RF</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <!-- LH_FOOT -->
+    <gazebo reference="HL_LOWER_LEG">
+        <sensor name="LH_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>HL_LOWER_LEG_fixed_joint_lump__HL_FOOT_collision_1</collision>
+            </contact>
+            <plugin name="LH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/LH</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <!-- RH_FOOT -->
+    <gazebo reference="HR_LOWER_LEG">
+        <sensor name="RH_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>HR_LOWER_LEG_fixed_joint_lump__HR_FOOT_collision_1</collision>
+            </contact>
+            <plugin name="RH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/RH</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
 </robot>

@@ -404,8 +404,8 @@
     </link> <!-- END LOWER LEG LINK -->
 
     <gazebo reference="${prefix}_FOOT">
-      <mu1>2</mu1>
-      <mu2>2</mu2>
+      <mu1>1</mu1>
+      <mu2>1</mu2>
     </gazebo>
 
   </xacro:macro>
