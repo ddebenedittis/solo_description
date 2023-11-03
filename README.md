@@ -13,3 +13,5 @@ To visualize and debug the robot description, start the standalone visualization
     ros2 launch solo_description standalone.launch.py
 
 The `robot_model` exec_depend is necessary to find the config file containing the parameters of the controllers implemented in https://github.com/ddebenedittis/control_quadrupeds_soft_contacts. The `$(find robot_control)/...` in the `gazebo.xacro` file or the whole `gazebo.xacro` file can be removed if unnecessary.
+
+The xacro arg `remove_shank_collisions` can be used for removing the shank collisions (:O). Useful when locomoting on very soft terrains and the shanks, in addition to the feet, would collide with the terrain.

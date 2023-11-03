@@ -135,8 +135,12 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>FL_LOWER_LEG_fixed_joint_lump__FL_FOOT_collision_1</collision>
-                <!-- <collision>FL_LOWER_LEG_collision</collision> -->
+                <xacro:if value="${remove_shank_collisions}">
+                    <collision>FL_LOWER_LEG_fixed_joint_lump__FL_FOOT_collision</collision>
+                </xacro:if>
+                <xacro:unless value="${remove_shank_collisions}">
+                    <collision>FL_LOWER_LEG_fixed_joint_lump__FL_FOOT_collision_1</collision>
+                </xacro:unless>
             </contact>
             <plugin name="LF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
@@ -154,7 +158,12 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>FR_LOWER_LEG_fixed_joint_lump__FR_FOOT_collision_1</collision>
+                <xacro:if value="${remove_shank_collisions}">
+                    <collision>FR_LOWER_LEG_fixed_joint_lump__FR_FOOT_collision</collision>
+                </xacro:if>
+                <xacro:unless value="${remove_shank_collisions}">
+                    <collision>FR_LOWER_LEG_fixed_joint_lump__FR_FOOT_collision_1</collision>
+                </xacro:unless>
             </contact>
             <plugin name="RF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
@@ -172,7 +181,12 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>HL_LOWER_LEG_fixed_joint_lump__HL_FOOT_collision_1</collision>
+                <xacro:if value="${remove_shank_collisions}">
+                    <collision>HL_LOWER_LEG_fixed_joint_lump__HL_FOOT_collision</collision>
+                </xacro:if>
+                <xacro:unless value="${remove_shank_collisions}">
+                    <collision>HL_LOWER_LEG_fixed_joint_lump__HL_FOOT_collision_1</collision>
+                </xacro:unless>
             </contact>
             <plugin name="LH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
@@ -190,7 +204,12 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>HR_LOWER_LEG_fixed_joint_lump__HR_FOOT_collision_1</collision>
+                <xacro:if value="${remove_shank_collisions}">
+                    <collision>HR_LOWER_LEG_fixed_joint_lump__HR_FOOT_collision</collision>
+                </xacro:if>
+                <xacro:unless value="${remove_shank_collisions}">
+                    <collision>HR_LOWER_LEG_fixed_joint_lump__HR_FOOT_collision_1</collision>
+                </xacro:unless>
             </contact>
             <plugin name="RH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>

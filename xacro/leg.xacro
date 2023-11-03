@@ -328,20 +328,22 @@
         </material>
       </visual>
       <!-- LOWER LEG LINK COLLISION -->
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
+      <xacro:unless value="${remove_shank_collisions}">
+        <collision>
           <xacro:unless value="${is_right}">
-            <mesh filename="file://$(find solo_description)/meshes/${mesh_ext}/with_foot/solo_lower_leg_left_side.${mesh_ext}"/>
+            <origin xyz="0  0.0075 -0.075" rpy="0 0 0" />
           </xacro:unless>
           <xacro:if value="${is_right}">
-            <mesh filename="file://$(find solo_description)/meshes/${mesh_ext}/with_foot/solo_lower_leg_right_side.${mesh_ext}"/>
+            <origin xyz="0 -0.0075 -0.075" rpy="0 0 0" />
           </xacro:if>
-        </geometry>
-        <material name="${color_name}">
-            <color rgba="${color} ${opacity}"/>
-        </material>
-      </collision>
+          <geometry>
+            <box size="0.015 0.01 0.15"/>
+          </geometry>
+          <material name="${color_name}">
+              <color rgba="${color} ${opacity}"/>
+          </material>
+        </collision>
+      </xacro:unless>
       <!-- Bullet specific paramters -->
       <contact>
         <lateral_friction value="1.0"/>
@@ -388,9 +390,9 @@
       </visual>
       <!-- FOOT COLLISION -->
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
         <geometry>
-            <mesh filename="file://$(find solo_description)/meshes/${mesh_ext}/with_foot/solo_foot.${mesh_ext}"/>
+          <sphere radius="0.015"/>
         </geometry>
         <material name="${color_name}">
             <color rgba="${color} ${opacity}"/>

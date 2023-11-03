@@ -10,6 +10,9 @@
     <xacro:property name="opacity" value="1.0" />
     <xacro:property name="mesh_ext" value="stl" />
 
+    <xacro:arg name="remove_shank_collisions" default="False"/>
+    <xacro:property name="remove_shank_collisions" default="$(arg remove_shank_collisions)"/>
+
     <!-- Import all Gazebo-customization elements, including Gazebo colors -->
     <xacro:include filename="$(find solo_description)/xacro/solo12_gazebo.xacro" />
 
