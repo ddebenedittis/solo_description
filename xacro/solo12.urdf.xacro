@@ -13,6 +13,9 @@
     <xacro:arg name="remove_shank_collisions" default="False"/>
     <xacro:property name="remove_shank_collisions" default="$(arg remove_shank_collisions)"/>
 
+    <xacro:arg name="sim" default="False"/>
+    <xacro:property name="sim" default="$(arg sim)"/>
+
     <!-- Import all Gazebo-customization elements, including Gazebo colors -->
     <xacro:include filename="$(find solo_description)/xacro/solo12_gazebo.xacro" />
 
