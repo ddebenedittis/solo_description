@@ -63,8 +63,8 @@
                 <plugin>solo12_interface/SOLO12_WB_Interface</plugin>
                 <param name="timeout">100</param>
                 <param name="command_type">0</param>
-                <param name="Kp">10.0</param>
-                <param name="Kv">0.0</param>
+                <param name="Kp">20.0</param>
+                <param name="Kv">0.1</param>
                 <param name="I_saturation">10.0</param>
             </hardware>
         </ros2_control>
