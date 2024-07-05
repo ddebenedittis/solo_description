@@ -49,11 +49,11 @@
 
 
     <!-- Effort_controller -->
-    <gazebo>
+    <!-- <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <parameters>$(find robot_control)/config/gazebo/solo12_controller_effort.yaml</parameters>
         </plugin>
-    </gazebo>
+    </gazebo> -->
 
 
     <!-- IMU sensor -->
